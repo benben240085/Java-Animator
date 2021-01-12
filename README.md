@@ -97,28 +97,6 @@ Design of the views:
   - The VisualView implements the IView. Its main task is to render the animations onto a JFrame for the user to watch. The view uses the AnimationPanel class to draw all the objects that are being passed into it through controller,
   
   - The EditView implements the IView. Its main task is to render the animations onto a JFrame for the user to watch and enable the user to edit the animation in many different ways. The view creates a buttonListener and implements the listener in the controller which uses methods from the model and eventually tells the view what to do once the methods have been executed.
-
-
-Changes from HW 6:
- - We deleted the log class for this assignment because it's no longer needed as it's implemented in our textualView.
- 
- - We constructed our views inside the controller rather than the main method in our Excellence class which enabled us to pass in more data from the model into our constructors. 
- 
- - On the last homework we were pretty confused as to how Timers worked and we went back and forth on whether to put it in the views or the controller. For this homework we decided to move the timer from the views and put it in the controller and inside the Timer construct a List of IAnimation which is then passed to the visualView which is passed to the animationPanel class which then draws every shape in the list.
- 
- - We had our animate function return void instead of a List of shapes. 
- 
- - We changed our shapes field in our model implementation to be a linkedHashMap rather than a regular hashMap.
- 
- - We removed our hasShape method and changed our removeKeyFrame method. Now our removeKeyFrame method iterates through a list of AShapes and removes both the ending tick and starting tick of the specified tick. 
- 
- - We changed our x, y, width, and height fields in AShape to doubles rather than ints to account for any decimal changes in the "tween" values. 
- 
- - We also added setters to our AShape class to enable the "tween" values to be set to the shape. 
- 
- - We have now made all of our views implement every function from IView and anything that doesn't apply to a specific view now throws an UnsupportedOperationException.
- 
- - We changed our shapes field in animationPanel from a HashMap<Integer, List<Shapes>> to a List of Shapes. 
  
  
  
